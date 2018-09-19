@@ -2,3 +2,6 @@
 configured Elasticsearch cluster. User interaction should be with Kibana or
 some other frontend to that data. There is little to do by interacting with
 Bro directly.
+
+See https://www.ixiacom.com/company/blog/threat-hunting-%C2%A0scale-part-one-series
+for more information
