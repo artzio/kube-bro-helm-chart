@@ -1,0 +1,78 @@
+# Default values for bro.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+clusterCidr: 192.168.0.0/16
+localCidrs:
+  - 10.0.0.0/8
+
+replicaCount: 1
+
+global:
+  cloudlens:
+    repository: ixiacom/cloudlens-sandbox-agent
+    tag: "1.1.3"
+    pullPolicy: IfNotPresent
+    domain: ixia-sandbox.cloud
+    apikey:
+    tags:
+    acceptEula:
+
+image:
+  repository: kraney/alpine-bro-ixia
+  tag: latest
+  pullPolicy: IfNotPresent
+
+logstash:
+  repository: docker.elastic.co/logstash/logstash
+  tag: 6.3.2
+  pullPolicy: IfNotPresent
+
+elasticsearch:
+  url: bro-es-elasticsearch-coordinating-only:9200
+
+service:
+  type: ClusterIP
+  port: 80
+
+settings:
+  logger:
+    port: 47761
+  manager:
+    port: 47762
+  proxy:
+    port: 47763
+  worker:
+    interface:
+      cloudlens0
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    - chart-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

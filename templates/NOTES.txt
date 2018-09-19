@@ -1,0 +1,4 @@
+1. In this chart Bro produces events and Logstash pushes those events into a
+configured Elasticsearch cluster. User interaction should be with Kibana or
+some other frontend to that data. There is little to do by interacting with
+Bro directly.

@@ -1,0 +1,15 @@
+env:
+  ELASTICSEARCH_URL: http://bro-es-elasticsearch-coordinating-only:9200
+image:
+  tag: 6.3.2
+ingress:
+  enabled: true
+  hosts:
+    - bro-kibana.local
+  # annotations:
+  #   kubernetes.io/ingress.class: nginx
+  #   kubernetes.io/tls-acme: "true"
+  # tls:
+    # - secretName: chart-example-tls
+    #   hosts:
+    #     - chart-example.local

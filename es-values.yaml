@@ -1,0 +1,10 @@
+image:
+  tag: 6.3.2
+coordinating:
+  name: coordinating-only
+  service:
+    port: 9200
+data: 
+  persistence:
+    size: 32Gi
+  replicas: 2
