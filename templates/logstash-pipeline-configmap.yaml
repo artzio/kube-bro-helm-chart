@@ -276,6 +276,16 @@ data:
         mutate {
           add_tag => [ "BRO" ]
         }
+        ruby {
+                code => "
+                        hash = event.to_hash
+                        hash.each do |k,v|
+                                if v == '-'
+                                        event.remove(k)
+                                end
+                        end
+                "
+        }
         mutate {
           convert => {
             "id.orig_p" => "integer"
