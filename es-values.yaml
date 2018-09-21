@@ -5,6 +5,6 @@ coordinating:
   service:
     port: 9200
 data: 
-  persistence:
-    size: 32Gi
+#  persistence:
+#    size: 32Gi
   replicas: 2
