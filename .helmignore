@@ -20,3 +20,5 @@
 .idea/
 *.tmproj
 kube-bro-*.tgz
+install.sh
+run.sh
