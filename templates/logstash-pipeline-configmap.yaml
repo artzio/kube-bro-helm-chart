@@ -170,7 +170,7 @@ data:
         # BRO_softwarelog ######################
           if [type] == "BRO_softwarelog" {
             csv {
-              columns => [ "ts", "bro_host", "host_p", "software_type", "name", "version.major", "version.minor", "version.minor2", "version.minor3", "version.addl", "unparsed_version" ]
+              columns => [ "ts", "bro_host", "host_p", "software_type", "name", "sw_version.major", "sw_version.minor", "sw_version.minor2", "sw_version.minor3", "sw_version.addl", "unparsed_version" ]
               separator => "	"
             }
           }
