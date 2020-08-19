@@ -8,28 +8,24 @@ localCidrs:
 
 replicaCount: 1
 
-global:
-  cloudlens:
-    repository: ixiacom/cloudlens-sandbox-agent
-    tag: "1.1.3"
-    pullPolicy: IfNotPresent
-    domain: ixia-sandbox.cloud
-    apikey:
-    tags:
-    acceptEula:
-
 image:
-  repository: kraney/alpine-bro-ixia
+  repository: master:5000/zeek
+#  repository: ophartzi/bro
+  tag: 3.1.3
+  pullPolicy: IfNotPresent
+#  pullPolicy: Always
+
+universalforwarder:
+  repository: master:5000/splunk-universalforwarder
+#  repository: splunk/universalforwarder
   tag: latest
   pullPolicy: IfNotPresent
 
-logstash:
-  repository: docker.elastic.co/logstash/logstash
-  tag: 6.3.2
+busybox:
+  repository: master:5000/busybox
+#  repository: busybox
+  tag: latest
   pullPolicy: IfNotPresent
-
-elasticsearch:
-  url: bro-es-elasticsearch-coordinating-only:9200
 
 service:
   type: ClusterIP
@@ -43,8 +39,15 @@ settings:
   proxy:
     port: 47763
   worker:
+    port: 47764
     interface:
-      cloudlens0
+#      enp101s0f0
+       eth0
+  forwarder:
+    ip: 10.36.155.55
+    port: 9997
+
+namespace: zeek
 
 ingress:
   enabled: false
@@ -71,7 +74,8 @@ resources: {}
   #  cpu: 100m
   #  memory: 128Mi
 
-nodeSelector: {}
+nodeSelector: card4port1
+#nodeSelector: minikube
 
 tolerations: []
 

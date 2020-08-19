@@ -1,7 +1,4 @@
-1. In this chart Bro produces events and Logstash pushes those events into a
-configured Elasticsearch cluster. User interaction should be with Kibana or
-some other frontend to that data. There is little to do by interacting with
-Bro directly.
+1. In this chart Zeek produces events and Splunk universal Forwarder pushes those events into a
+remote Splunk server. There is little to do by interacting with Zeek directly.
 
-See https://www.ixiacom.com/company/blog/threat-hunting-%C2%A0scale-part-one-series
-for more information
+This chart is based on blog https://www.ixiacom.com/company/blog/threat-hunting-%C2%A0scale-part-one-series
